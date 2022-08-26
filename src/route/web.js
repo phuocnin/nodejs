@@ -1,11 +1,11 @@
 import express from "express";
 import homeController from '../controller/homeController'
-import Aa from '../controller/Aa'
+
 let router = express.Router();
 
 const initWebRoute = (app) => {
-    router.get('/', homeController.getHomePage)
-    router.get('/aa', Aa.getAa)
+    router.get('/', homeController.a)
+    router.get('/b', homeController.b)
     return app.use('/', router)
 }
 export default initWebRoute;
