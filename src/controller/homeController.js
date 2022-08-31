@@ -5,10 +5,10 @@ let getHomePage = (req, res) => {
 
     con.connect(function (x) {
         con.query(
-            "SELECT * FROM user Where firstName = 'phuoc'",
+            "SELECT * FROM user ",
             function (err, result, fields) {
                 console.log(result)
-                return res.render('index.ejs', { datauser: JSON.stringify(result) })
+                return res.render('index.ejs', { datauser: result })
             }
         )
 

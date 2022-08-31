@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>học node</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
 
 <body>
@@ -16,12 +18,51 @@
         <a href="#about">About</a>
     </div>
 
-    <div style="padding-left:16px">
-        <h2>Top Navigation Example</h2>
-        <p>Some content..</p>
+    <div>
+
+        <div class="w3-container">
+            <h2>Table</h2>
+            <%= datauser %>
+                <table class="w3-table-all w3-hoverable">
+                    <thead>
+                        <tr class="w3-light-grey">
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i=0; i < datauser.length; i++){ %>
+                            <tr>
+                                <td>
+                                    <%= datauser[i].id %>
+                                </td>
+                                <td>
+                                    <%= datauser[i].firstName %>
+                                </td>
+                                <td>
+                                    <%= datauser[i].lastName %>
+                                </td>
+                                <td>
+                                    <%= datauser[i].address %>
+                                </td>
+                                <td>
+                                    <button type="button">Detail</button>
+                                    <button type="button">Edit</button>
+                                    <button type="button">Delete</button>
+                                </td>
+                            </tr>
+                            <% } %>
+
+                    </tbody>
+        </div>
+
     </div>
-    <%= datauser %>
-        <img src="/image/chel.png" />
+
+    <img src="/image/chel.png" />
+
 </body>
 
 </html>
