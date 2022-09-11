@@ -4,8 +4,8 @@ import homeController from '../controller/homeController'
 let router = express.Router();
 
 const initWebRoute = (app) => {
-    router.get('/', homeController.a)
-    router.get('/b', homeController.b)
+    router.get('/', homeController.getHomePage)
+    router.get('/:id', homeController.getInfo)
     return app.use('/', router)
 }
 export default initWebRoute;

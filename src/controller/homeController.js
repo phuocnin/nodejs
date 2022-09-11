@@ -11,18 +11,26 @@ let getHomePage = (req, res) => {
                 return res.render('index.ejs', { datauser: result })
             }
         )
-
-
-
-
-    });
+    })
 
 }
-let getAa = (req, res) => {
-    return res.send(`aa`)
+let getInfo = (req, res) => {
+
+    con.connect(function (x) {
+        con.query(
+
+            "SELECT * FROM user where id = ?", [req.params.id],
+            function (err, result, fields) {
+                console.log(result)
+                return res.render('index.ejs', { datauser: result })
+            }
+        )
+    })
+
 }
+
 
 module.exports = {
-    a: getHomePage,
-    b: getAa
+    getHomePage, getInfo
+
 }
