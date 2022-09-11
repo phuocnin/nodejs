@@ -14,6 +14,22 @@ let getHomePage = (req, res) => {
     })
 
 }
+let createUser = (req, res) => {
+
+    con.connect(function (x) {
+        let { firstName, lastName, email, address } = req.body;
+        con.query(
+
+            "INSERT INTO user (firstName, lastName, email, address) VALUES (?, ?, ?, ?)", [firstName, lastName, email, address],
+            function (err, result, fields) {
+                return res.redirect("/")
+            }
+        )
+
+    })
+
+}
+
 let getInfo = (req, res) => {
 
     con.connect(function (x) {
@@ -29,8 +45,7 @@ let getInfo = (req, res) => {
 
 }
 
-
 module.exports = {
-    getHomePage, getInfo
+    getHomePage, getInfo, createUser
 
 }
