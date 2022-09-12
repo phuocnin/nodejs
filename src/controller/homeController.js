@@ -14,21 +14,6 @@ let getHomePage = (req, res) => {
     })
 
 }
-let createUser = (req, res) => {
-
-    con.connect(function (x) {
-        let { firstName, lastName, email, address } = req.body;
-        con.query(
-
-            "INSERT INTO user (firstName, lastName, email, address) VALUES (?, ?, ?, ?)", [firstName, lastName, email, address],
-            function (err, result, fields) {
-                return res.redirect("/")
-            }
-        )
-
-    })
-
-}
 
 let getInfo = (req, res) => {
 
@@ -45,7 +30,35 @@ let getInfo = (req, res) => {
 
 }
 
+let createUser = (req, res) => {
+
+    con.connect(function (x) {
+        let { firstName, lastName, email, address } = req.body;
+        con.query(
+
+            "INSERT INTO user (firstName, lastName, email, address) VALUES (?, ?, ?, ?)", [firstName, lastName, email, address],
+            function (err, result, fields) {
+                return res.redirect("/")
+            }
+        )
+
+    })
+
+}
+let deleteUser = (req, res) => {
+
+    con.connect(function (x) {
+        con.query(
+            "delete from user where id = ?", [req.body.userId],
+            function (err, result, fields) {
+                return res.redirect("/")
+            }
+        )
+
+    })
+
+}
 module.exports = {
-    getHomePage, getInfo, createUser
+    getHomePage, getInfo, createUser, deleteUser
 
 }

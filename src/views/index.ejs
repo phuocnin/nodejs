@@ -51,7 +51,10 @@
                                 <td>
                                     <button type="button">Detail</button>
                                     <button type="button">Edit</button>
-                                    <button type="button">Delete</button>
+                                    <form action="/delete-user" method="post">
+                                        <input type="text" value="<%= datauser[i].id %>" name="userId" />
+                                        <button type="submit">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             <% } %>
