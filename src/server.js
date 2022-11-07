@@ -12,9 +12,7 @@ app.use(express.json());
 
 configviewEngine(app);
 initWebRoute(app);
-app.get('/bb', (req, res) => {
-    res.render('index.ejs')
-})
+
 
 app.listen(port, () => {
     console.log(`link: http://localhost:${port}`);

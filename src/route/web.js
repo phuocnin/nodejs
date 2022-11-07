@@ -8,6 +8,8 @@ const initWebRoute = (app) => {
     router.get('/:id', homeController.getInfo)
     router.post("/createuser", homeController.createUser)
     router.post('/delete-user', homeController.deleteUser)
+    router.get("/edit-user/:id", homeController.edit)
+    router.post("/updeteUser/:id", homeController.updete)
     return app.use('/', router)
 }
 export default initWebRoute;
